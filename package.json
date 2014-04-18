@@ -18,5 +18,8 @@
 	"homepage": "https://github.com/SteinbrennerBlueHats/bells",
 	"devDependencies": {
 		"should": "3.3.x"
+	},
+	"dependencies": {
+		"moment": "2.6.x"
 	}
 }
