@@ -107,9 +107,10 @@ var Predictor = Bells.Predictor({
 // => Object
 ```
 
-#### `Predictor#predict(date)`
-Predict the bell schedule for a certain date. (The date must be a full
-month/day/year, in any format guessable by [Moment][Moment-ParseString].)
+#### `Predictor#predict([date])`
+Predict the bell schedule for a certain date, or today if omitted. (The date
+must be a full month/day/year, in any format guessable by
+[Moment][Moment-ParseString].)
 
 ```js
 Predictor.predict('2014-04-15'); // normal Tuesday
