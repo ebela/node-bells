@@ -66,9 +66,9 @@ time parameters.
 
 ```js
 schedule.nextBell('7:10');
-// => Moment('07:15', 'HH:mm')
+// => '07:15'
 schedule.nextBell('8:23');
-// => Moment('08:29', 'HH:mm')
+// => '08:29'
 schedule.nextBell('16:00');
 // => null
 ```

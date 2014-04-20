@@ -82,58 +82,22 @@ describe('Bells', function() {
 	describe('#nextBell([now])', function() {
 		it('should return the time of the next arbitrary bell when appropriate', function() {
 			var normalBellSchedule = Bells(normalBellScheduleRepresentation);
-
-			// == 7:15
-			normalBellSchedule.nextBell('7:10').should.match(function(obj) {
-				return moment.isMoment(obj);
-			}).and.match(function(obj) {
-				var clone = moment(obj);
-				expected.hour(7);
-				expected.minute(15);
-				return obj.isSame(expected);
-			});
+			normalBellSchedule.nextBell('7:10').should.be.a.String.and.eql('7:15');
 		});
 
 		it('should return the next end-of-class bell when appropriate', function() {
 			var normalBellSchedule = Bells(normalBellScheduleRepresentation);
-
-			// == 8:23
-			normalBellSchedule.nextBell('8:00').should.match(function(obj) {
-				return moment.isMoment(obj);
-			}).and.match(function(obj) {
-				var clone = moment(obj);
-				expected.hour(8);
-				expected.minute(23);
-				return obj.isSame(expected);
-			});
+			normalBellSchedule.nextBell('8:00').should.be.a.String.and.eql('8:23');
 		});
 
 		it('should return the next tardy bell when appropriate', function() {
 			var normalBellSchedule = Bells(normalBellScheduleRepresentation);
-
-			// == 8:29
-			normalBellSchedule.nextBell('8:24').should.match(function(obj) {
-				return moment.isMoment(obj);
-			}).and.match(function(obj) {
-				var clone = moment(obj);
-				expected.hour(8);
-				expected.minute(29);
-				return obj.isSame(expected);
-			});
+			normalBellSchedule.nextBell('8:24').should.be.a.String.and.eql('8:29');
 		});
 
 		it('should return the next bell when given the same time as a bell', function() {
 			var normalBellSchedule = Bells(normalBellScheduleRepresentation);
-
-			// == 8:29
-			normalBellSchedule.nextBell('8:23').should.match(function(obj) {
-				return moment.isMoment(obj);
-			}).and.match(function(obj) {
-				var clone = moment(obj);
-				expected.hour(8);
-				expected.minute(29);
-				return obj.isSame(expected);
-			});
+			normalBellSchedule.nextBell('8:23').should.be.a.String.and.eql('8:29');
 		});
 
 		it('should return null when there are no more bells', function() {
