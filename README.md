@@ -16,9 +16,9 @@ This is an `npm` module that helps with the computation of bell schedules.
 ## API
 Times are passed around as instances of [`Moment()`][Moment].
 
-When an argument is a time, `Bells` attempts to parse it as one of the formats
-specified [here][Moment-ParseString]. If these fail, then it attempts to parse
-it as a `HH:mm` time (24hr time).
+When an argument is a time, `Bells` attempts to parse it as a `HH:mm` time (24hr
+time). A date argument must be given in a format specified
+[here][Moment-ParseString].
 
 ### `Bells(bellScheduleRepresentation)`
 Create a `Bells` object. See below for the layout of
