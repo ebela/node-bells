@@ -1,4 +1,5 @@
 var should = require('should');
+var assert = require('assert');
 var Bells = require('../lib');
 var moment = require('moment');
 
