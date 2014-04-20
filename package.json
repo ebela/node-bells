@@ -20,6 +20,7 @@
 		"should": "3.3.x"
 	},
 	"dependencies": {
-		"moment": "2.6.x"
+		"moment": "2.6.x",
+		"underscore": "1.6.x"
 	}
 }
