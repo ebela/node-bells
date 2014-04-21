@@ -1,10 +1,10 @@
 {
 	"name": "bells",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Bell schedule computation and formatting",
 	"main": "index.js",
 	"scripts": {
-		"test": "mocha"
+		"test": "mocha -G"
 	},
 	"repository": {
 		"type": "git",
