@@ -83,6 +83,32 @@ does not associate a `Bells` object to that string.
 var Bells = require('bells');
 
 var Predictor = Bells.Predictor({
+	// 'default' is the fallback bell schedule.
+	// This is returned when there is no other bell schedule specified for a day.
+	'default': 'Normal Day',
+
+	// 'none' is interpreted to mean there is no school.
+	// 0&6 mean that this applies on those days of the week, where
+	// 	0 is Sunday and 6 is Saturday.
+	// SMTWTFS
+	// 0123456
+	'0': 'none',
+	'6': 'none',
+
+	// This applies on 4/18/14.
+	// A specific date overrides any day-of-week selector and the 'default'.
+	// The dates *MUST* be zero-padded or the predictor won't find it
+	'04/18/2014': 'none',
+
+	'04/17/2014': 'FCAT',
+	'04/22/2014': 'FCAT',
+	'04/23/2014': 'FCAT',
+
+	'04/14/2014': 'FCAT - Monday',
+});
+
+// A possible future implementation
+/*var Predictor = Bells.Predictor({
 	// 'none' is interpreted to mean there is no school.
 	// [0, 6] means that this applies on those days of the week, where
 	// 	0 is Sunday and 6 is Saturday.
@@ -103,7 +129,7 @@ var Predictor = Bells.Predictor({
 
 	// You can also specify a string with a date instead of an array of strings
 	'FCAT - Monday': '4/14/2014',
-});
+});*/
 // => Object
 ```
 

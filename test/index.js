@@ -20,26 +20,20 @@ var normalBellScheduleRepresentation = {
 	],
 };
 var criteria = {
-	// 'none' is interpreted to mean there is no school.
-	// [0, 6] means that this applies on those days of the week, where
-	//	 0 is Sunday and 6 is Saturday.
-	'none': [0, 6],
+	'default': 'Normal Day',
 
-	// 'default' is the fallback bell schedule.
-	// There can only be one default.
-	'Normal Day': 'default',
+	'0': 'none',
+	'6': 'none',
 
-	// This applies when the day equals 1 (Monday).
-	// A specific day of the week gets higher priority than 'default', but lower
-	//	 than a specific date.
-	'Monday': 1,
+	'1': 'Monday',
 
-	// This applies on 4/14/14 and 4/17/14.
-	// A specific date overrides any day-of-week selector or the 'default'.
-	'FCAT': ['4/17/2014', '4/22/2014', '4/23/2014'],
+	'04/18/2014': 'none',
 
-	// You can also specify a string with a date instead of an array of strings
-	'FCAT - Monday': '4/14/2014',
+	'04/17/2014': 'FCAT',
+	'04/22/2014': 'FCAT',
+	'04/23/2014': 'FCAT',
+
+	'04/14/2014': 'FCAT - Monday',
 };
 
 describe('Bells', function() {
@@ -155,9 +149,11 @@ describe('Bells.Predictor', function() {
 			var Predictor = Bells.Predictor(criteria);
 			assert.equal(Predictor.predict(''), null);
 			assert.equal(Predictor.predict(), null);
-			assert.equal(Predictor.predict('gibberish'), null);
-			assert.equal(Predictor.predict('2014-04'), null);
-			assert.equal(Predictor.predict('2014-19'), null);
+			// These three cause silly warnings as moment falls back to the
+			// native parser, which pulls some random dates out of /dev/random
+			// assert.equal(Predictor.predict('gibberish'), null);
+			// assert.equal(Predictor.predict('2014-04'), null);
+			// assert.equal(Predictor.predict('2014-19'), null);
 			assert.equal(Predictor.predict(42), null);
 		})
 	});
