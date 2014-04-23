@@ -19,6 +19,22 @@ var normalBellScheduleRepresentation = {
 		'7:25',
 	],
 };
+var reorderedBellScheduleRepresentation = {
+	periods: {
+		'2': ['8:29', '9:24'], // Where time between 00:00 and 23:59
+		'3': ['9:30', '10:20'],
+		'4 (1st lunch)': ['10:26', '11:16'],
+		'1': ['7:33', '8:23'], // [start-time, end-time]
+		'8': ['14:10', '15:00'],
+		'6 (3rd lunch)': ['12:18', '13:08'],
+		'7': ['13:14', '14:04'],
+		'5 (2nd lunch)': ['11:22', '12:12'],
+	},
+	other: [
+		'7:15',
+		'7:25',
+	],
+};
 var criteria = {
 	'default': 'Normal Day',
 
@@ -70,6 +86,11 @@ describe('Bells', function() {
 		it('should return null when not in a period', function() {
 			var normalBellSchedule = Bells(normalBellScheduleRepresentation);
 			assert.equal(normalBellSchedule.currentPeriod('16:00'), null);
+		});
+
+		it('should return the correct period when the periods in the object are not in order', function() {
+			var reorderedBellSchedule = Bells(reorderedBellScheduleRepresentation);
+			reorderedBellSchedule.currentPeriod('14:15').should.be.a.String.and.eql('8');
 		});
 	});
 
