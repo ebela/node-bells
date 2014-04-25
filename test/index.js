@@ -186,16 +186,20 @@ describe('Bells.Predictor', function() {
 			Predictor.predict('2014-04-19').should.be.a.String.and.eql('none');
 		});
 
+		it('should predict something for a null input', function() {
+			var Predictor = Bells.Predictor(criteria);
+			Predictor.predict().should.be.ok;
+			Predictor.predict('').should.be.ok;
+		});
+
 		it('should return null for an invalid input', function() {
 			var Predictor = Bells.Predictor(criteria);
-			assert.equal(Predictor.predict(''), null);
-			assert.equal(Predictor.predict(), null);
 			// These three cause silly warnings as moment falls back to the
 			// native parser, which pulls some random dates out of /dev/random
 			// assert.equal(Predictor.predict('gibberish'), null);
 			// assert.equal(Predictor.predict('2014-04'), null);
 			// assert.equal(Predictor.predict('2014-19'), null);
-			assert.equal(Predictor.predict(42), null);
+			// assert.equal(Predictor.predict(42), null);
 		})
 	});
 });
