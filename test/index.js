@@ -69,6 +69,8 @@ describe('Bells', function() {
 			var normalBellSchedule = Bells(normalBellScheduleRepresentation);
 			normalBellSchedule.currentPeriod.should.be.a.Function;
 			normalBellSchedule.nextBell.should.be.a.Function;
+			normalBellSchedule.periods.should.be.a.Function;
+			normalBellSchedule.allBells.should.be.a.Function;
 		});
 	});
 
@@ -118,6 +120,24 @@ describe('Bells', function() {
 		it('should return null when there are no more bells', function() {
 			var normalBellSchedule = Bells(normalBellScheduleRepresentation);
 			assert.equal(normalBellSchedule.nextBell('16:00'), null);
+		});
+	});
+
+	describe('#periods()', function() {
+		it('should return all periods', function() {
+			var normalBellSchedule = Bells(normalBellScheduleRepresentation);
+			normalBellSchedule.periods().should.eql(normalBellScheduleRepresentation.periods);
+		});
+	});
+
+	describe('#allBells()', function() {
+		it('should return all bells', function() {
+			var normalBellSchedule = Bells(normalBellScheduleRepresentation);
+			normalBellSchedule.allBells().should.eql([
+				'7:15', '7:25', '7:33', '8:23', '8:29', '9:24', '9:30', '10:20',
+				'10:26', '11:16', '11:22', '12:12', '12:18', '13:08', '13:14',
+				'14:04', '14:10', '15:00',
+			]);
 		});
 	});
 });

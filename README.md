@@ -73,6 +73,31 @@ schedule.nextBell('16:00');
 // => null
 ```
 
+#### `Bells#periods()`
+Get all class periods passed to the initializer.
+
+```js
+schedule.periods();
+/* => {
+	'1': ['7:33', '8:23'],
+	...
+	'8': ['14:10', '15:00'],
+} */
+```
+
+#### `Bells.allBells()`
+Get all bells in the schedule, sorted in ascending order.
+
+```js
+schedule.allBells()
+/* => [
+	'7:15',
+	'7:25',
+	...
+	'15:00',
+] */
+```
+
 ### `Bells.Predictor(criteria)`
 Create a `Predictor` object. See below for the layout of `criteria`.
 
