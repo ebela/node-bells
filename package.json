@@ -4,7 +4,7 @@
 	"description": "Bell schedule computation and formatting",
 	"main": "index.js",
 	"scripts": {
-		"test": "mocha -G"
+		"test": "mocha"
 	},
 	"repository": {
 		"type": "git",

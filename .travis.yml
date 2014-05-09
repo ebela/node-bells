@@ -4,4 +4,5 @@ node_js:
   - "0.8"
 install:
   - npm install -g mocha
+  - npm install
 
