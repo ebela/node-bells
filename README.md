@@ -1,4 +1,4 @@
-`bells` [![Build Status](https://travis-ci.org/SteinbrennerBlueHats/bells.svg?branch=master)](https://travis-ci.org/SteinbrennerBlueHats/bells)
+`bells` [![Build Status](https://travis-ci.org/JoshTheGeek/node-bells.svg?branch=master)](https://travis-ci.org/JoshTheGeek/node-bells)
 =======
 This is an `npm` module that helps with the computation of bell schedules.
 
