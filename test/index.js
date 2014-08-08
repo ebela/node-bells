@@ -200,6 +200,6 @@ describe('Bells.Predictor', function() {
 			// assert.equal(Predictor.predict('2014-04'), null);
 			// assert.equal(Predictor.predict('2014-19'), null);
 			// assert.equal(Predictor.predict(42), null);
-		})
+		});
 	});
 });
